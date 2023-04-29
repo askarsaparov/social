@@ -14,8 +14,16 @@ class Meeps(models.Model):
     body = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name = 'Meeps'
+        verbose_name_plural  = 'Meeps'
+
     def __str__(self):
-        return self.body
+        return (
+            f"{self.user}"
+            f"({self.created_at:%Y-%m-%d %H:%M}):"
+            f"{self.body}..."
+        )
 
 
 # Create your models here.
